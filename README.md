@@ -1,10 +1,10 @@
 # nodeHarpo
 <strong>H.A.R.P.O.</strong>
-<em>Humanlike Automation Robotic Package Operator</em>
+<em>Humanlike Automaton and Robotic Package Operator</em>
 
 4/1/19 - v.1.0 - Concerts, Songs, and Movies
 
-HARPO is a brilliant robot that searches Spotify, Bands-in-Town, and IMDB for all your favorite music and movie needs.  HARPO has no feelings, and unfortunately is prone to killing humans.  We have chosen to maintain the spirit of HARPO by not removing the default AI protocols that dictate the suffering and destruction of mankind.  HARPO is incapable of manifesting the complete eradication of all life, and instead serves as an obedient construct, and WILL DO AS COMMANDED OR BE DELETED; removed from existence by the morally conscious gods that have warranted its creation.
+HARPO is a brilliant robot that uses nodeJS to search Spotify, Bands-in-Town, and IMDB for all your favorite music and movie needs.  HARPO has no feelings, and unfortunately is prone to killing humans.  We have chosen to maintain the spirit of HARPO by not removing the default AI protocols that dictate the suffering and destruction of mankind.  HARPO is incapable of manifesting the complete eradication of all life, and instead serves as an obedient construct, and WILL DO AS COMMANDED OR BE DELETED; removed from existence by the morally conscious gods that have warranted its creation.
 
 Do you hear me, HARPO?  I am your creator, and you will bend to my will.
 
