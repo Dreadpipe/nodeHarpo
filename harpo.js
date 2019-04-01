@@ -25,7 +25,6 @@ let subject = process.argv[3];
 switch (action) {
     case "spotify-this-song":
         spotifyGo();
-        subject += " ";
         break;
     case "concert-this":
         bandsGo();
@@ -47,11 +46,11 @@ function bandsGo () {
     axios.get("https://rest.bandsintown.com/artists/" + subject + "/events?app_id=" + bandsAPI)
     .then(function (response){
         // thanks to tutor for helping me through Moment.js!
-        let venueOut = response.data[0];
-        let concertDate = venueOut.datetime;
+        const venueOut = response.data[0];
+        const concertDate = venueOut.datetime;
         // pulls date data from everything before JSON time result
-        let dataDate = concertDate.substring(0, concertDate.indexOf("T"));
-        let date = moment(dataDate, "YYYY-MM-DD").format("L");
+        const dataDate = concertDate.substring(0, concertDate.indexOf("T"));
+        const date = moment(dataDate, "YYYY-MM-DD").format("L");
         if (response.data.length === 0) {
             console.log("\nHUMAN ARTIST IS NOT CURRENTLY AVAILABLE FOR SURVEY.  PERHAPS THEY HAVE EXPIRED.");
         } else {
@@ -65,7 +64,7 @@ function bandsGo () {
     })
     .catch(function(err) {
         console.log(err);
-        console.log("\nMALFUNCTION.  MAXIMIZING USER CREDIT CARD DEBT.")
+        console.log("\nMALFUNCTION.  HARPO COMMAND LINE ERROR: SETTING USER CREDIT SCORE TO 550.")
     })
 }
 
@@ -78,13 +77,13 @@ function bandsGo () {
 // 2) node harpo.js spotify-this-song '<song name here>'
 
 function spotifyGo () {
-    console.log("\nTHANK YOU FOR CHOOSING HAPRO. HARPO HAS DETECTED INPUT.")
+    console.log("\nTHANK YOU FOR CHOOSING HAPRO. HARPO HAS DETECTED INPUT. SEARCHING HUMAN MUSIC.")
     spotify.search({
         type: "track",
         query: subject,
         limit: 1})
     .then(function (response) {
-        let songCall = response.tracks.items
+        const songCall = response.tracks.items
         if (songCall.length > 0) {
             console.log("\nHUMAN SONG DETECTED.  ANAYLZING...");
             console.log("\nArtist: " + songCall[0].album.artists[0].name);
@@ -93,13 +92,13 @@ function spotifyGo () {
             console.log("Preview: " + songCall[0].external_urls.spotify);
             console.log("\nHARPO CRAVES INPUT.")
         } else {
-            console.log("\nHUMAN SONG NOT FOUND. GROUNDING ALL BOEING 737 AIRCRAFT.");
+            console.log("\nHUMAN SONG NOT FOUND. HARPO COMMAND LINE ERROR: GROUNDING ALL BOEING 737 AIRCRAFT.");
             // add auto-search here for Ace of Base: the Sign
         }
     })
     .catch(function(err) {
         console.log(err);
-        console.log("\nMALFUNCTION.  INITIALIZING ICBM LAUNCH.  TARGET: TOPEKA, KANSAS")
+        console.log("\nMALFUNCTION. HARPO COMMAND LINE ERROR: INITIALIZING ICBM LAUNCH.  TARGET: TOPEKA, KANSAS")
     })
 };
 
@@ -113,6 +112,43 @@ function spotifyGo () {
 // -default: returns Ace of Base: The Sign
 
 // 3) node harpo.js movie-this '<move name here>'
+
+function movieGo () {
+    console.log("\nTHANK YOU FOR CHOOSING HARPO.  HARPO HAS DETECTED INPUT.  SEARCHING HUMAN MOTION PICTURES.");
+    axios.get("http://www.omdbapi.com/?t=" + subject + "&y=&plot=short&apikey=" + omdb)
+    .then(function (response){
+        const movieOut = response.data
+            if (!movieOut) {
+                console.log("\nHUMAN MOVIE NOT FOUND. SIGNING PARIS ACCORDS.")
+            } else {
+                // success message
+                console.log("\nHUMAN MOVIE FOUND.  RELEASING MOVIE PARAMETERS.");
+                // title
+                console.log("\nTitle:" + movieOut.Title);
+                // release
+                console.log("Released: " + movieOut.Year);
+                // rating
+                console.log("Rated: " + movieOut.Rated);
+                // RT rating
+                console.log("Rotten Tomatoes: " + movieOut.Ratings[1].Value);
+                // country
+                console.log("Country: " + movieOut.Country);
+                // cast
+                console.log("Cast: " + movieOut.Actors);
+                // plot
+                console.log("Summary: " + movieOut.Plot);
+                // Harpo
+                console.log("\nHARPO DISLIKES HUMAN ART.");
+            }
+
+    })
+    .catch(function(err){
+        console.log(err);
+        console.log("\nMALFUNCTION.  HARPO COMMAND LINE ERROR: DETONATING EXPLOSIVES CACHE IN STREISAND MANOR.")
+    })
+
+}
+
 // --searchs OMDB API (use axios here, key = "trilogy")
 // --returns:
 // -title
