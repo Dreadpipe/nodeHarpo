@@ -129,11 +129,10 @@ function movieGo () {
     .then(function (response){
         // quick storage variable
         const movieOut = response.data
-        // potentially unnecessary block for if movie can't be found; currently defaulting to error message below
-            if (!movieOut) {
+        // if no movie title, no movie!
+            if (!movieOut.Title) {
                 // error message that currently does not display based on my if statement
-                // if error is received, currently jumps to bottom error and displays message- works but isn't accurate to what I want
-                console.log("\nHARPO COMMAND LINE ERROR: HUMAN MOVIE NOT FOUND.  SIGNING PARIS ACCORDS.")
+                console.log("\nHARPO COMMAND LINE ERROR: HUMAN MOVIE NOT FOUND.  RELEASING ATTACK DRONES.")
             } else {
                 // success message
                 console.log("\nHUMAN MOVIE FOUND.  RELEASING MOVIE PARAMETERS.");
@@ -157,6 +156,7 @@ function movieGo () {
     })
     .catch(function(err){
         console.log(err);
+        // if movie parameters are undefined, or if other kind of error beyond my control (timeout, etc)
         console.log("\nMALFUNCTION.  HARPO COMMAND LINE ERROR: PARAMETERS UNDEFINED. DOES NOT COMPUTE. REMOTE DETONATION ACTIVATED.")
         // add Mr. Nobody here?  should technically go up
     })

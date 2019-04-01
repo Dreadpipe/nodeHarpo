@@ -36,7 +36,7 @@ node harpo.js
 Following "harpo.js", please enter one of the following commands, followed by the relevant subject of your choosing.  Your subject must be submitted within quotes. i.e., "Eagles of Death Metal", "Live and Let Die"
 
 ### Search for a song! 
-##### Command Line: node harpo.js spotify-this-song "your song here"
+<strong>Command Line:</strong> <code>node harpo.js spotify-this-song "your song here"</code>
 Example: <em>node harpo.js spotify-this-song "Thriller"</em>
 <br>
 This will return information on the song, such as the Artist and the album.
