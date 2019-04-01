@@ -39,6 +39,7 @@ Following "harpo.js", please enter one of the following commands, followed by th
 <strong>Command Line:</strong> 
 <br>
 <code>node harpo.js spotify-this-song "your song here"</code>
+<br>
 Example: <em>node harpo.js spotify-this-song "Thriller"</em>
 <br>
 This will return information on the song, such as the Artist and the album.
@@ -47,6 +48,7 @@ This will return information on the song, such as the Artist and the album.
 <strong>Command Line:</strong>
 <br>
 <code>node harpo.js concert-this "your artist here"</code>
+<br>
 Example: <em>node harpo.js concert-this "Devin Townsend"</em>
 <br>
 This will return information on concert dates, including venue and location, if any exist.
@@ -55,6 +57,7 @@ This will return information on concert dates, including venue and location, if 
 <strong>Command Line:</strong> 
 <br>
 <code>node harpo.js movie-this "your movie here"</code>
+<br>
 Example: <em>node harpo.js movie-this "The Matrix"</em>
 <br>
 This will return information on the movie, including release dates, cast, and plot.
@@ -63,6 +66,7 @@ This will return information on the movie, including release dates, cast, and pl
 <strong>Command Line:</strong>
 <br>
 <code>node harpo.js do-what-it-says "..."</code>
+<br>
 Example: <em>node harpo.js do-what-it-says "...?"</em>
 <br>
 -Available in later versions!
