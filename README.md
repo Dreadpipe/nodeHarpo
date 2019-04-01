@@ -35,26 +35,26 @@ node harpo.js
 
 Following "harpo.js", please enter one of the following commands, followed by the relevant subject of your choosing.  Your subject must be submitted within quotes. i.e., "Eagles of Death Metal", "Live and Let Die"
 
-### Command Line: 
-##### node harpo.js spotify-this-song "your song here"
+### Search for a song! 
+##### Command Line: node harpo.js spotify-this-song "your song here"
 Example: <em>node harpo.js spotify-this-song "Thriller"</em>
 <br>
 This will return information on the song, such as the Artist and the album.
 
-### Command Line: 
-##### node harpo.js concert-this "your artist here"
+### Search for a concert! 
+##### Command Line: node harpo.js concert-this "your artist here"
 Example: <em>node harpo.js concert-this "Devin Townsend"</em>
 <br>
 This will return information on concert dates, including venue and location, if any exist.
 
-### Command Line: 
-##### node harpo.js movie-this "your movie here"
+### Search for a movie!
+##### Command Line: node harpo.js movie-this "your movie here"
 Example: <em>node harpo.js movie-this "The Matrix"</em>
 <br>
 This will return information on the movie, including release dates, cast, and plot.
 
-### Command Line: 
-##### node harpo.js do-what-it-says "..."
+### Search all above, via local document (.txt)
+##### Command Line: node harpo.js do-what-it-says "..."
 Example: <em>node harpo.js do-what-it-says "...?"</em>
 <br>
 -Available in later versions!
