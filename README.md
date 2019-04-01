@@ -1,5 +1,6 @@
 # nodeHarpo
-I know the project says "LIRI", but my guy's name is "HARPO"
+<strong>H.A.R.P.O.</strong>
+<em>Human and Robot Package Operator</em>
 
 4/1/19 - v.1.0 - Concerts, Songs, and Movies
 
@@ -36,18 +37,22 @@ Following "harpo.js", please enter one of the following commands, followed by th
 
 ### Command line: node harpo.js spotify-this-song "your song here"
 Example: <em>node harpo.js spotify-this-song "Thriller"</em>
+<br>
 This will return information on the song, such as the Artist and the album.
 
 ### Command Line: node harpo.js concert-this "your artist here"
 Example: <em>node harpo.js concert-this "Devin Townsend"</em>
+<br>
 This will return information on concert dates, including venue and location, if any exist.
 
 ### Command Line: node harpo.js movie-this "your movie here"
 Example: <em>node harpo.js movie-this "The Matrix"</em>
+<br>
 This will return information on the movie, including release dates, cast, and plot.
 
 ### Command Line: node harpo.js do-what-it-says "..."
 Example: <em>node harpo.js do-what-it-says "...?"</em>
+<br>
 -Available in later versions!
 
 Use at your own risk.  HARPO does not like being told what to do.
