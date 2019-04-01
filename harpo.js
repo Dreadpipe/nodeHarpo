@@ -17,11 +17,10 @@ const bandsAPI = "codingbootcamp";
 // stores the spotify key
 const spotify = new Spotify(keys.spotify);
 
-
 // variables to store commands
 let action = process.argv[2];
 let subject = process.argv[3];
-
+// super cool switch function that accommodates user inputs
 switch (action) {
     case "spotify-this-song":
         spotifyGo();
@@ -38,8 +37,10 @@ switch (action) {
     default:
         console.log("\nMALFUNCTION.  HARPO COMMAND LINE ERROR: COMMAND UNRECOGNIZED.  SENDING SNAPCHAT LOGS TO USER CONTACT LIST")
 };
+
 // Begin 4 Primary Functions (find bands, find songs, find movies, read text)
 // 1) node harpo.js concert-this <artist/band name here>
+
 function bandsGo () {
     // confirm command received
     console.log("\nTHANK YOU FOR CHOOSING HARPO.\n  \nINPUT DETECTED: 'CONCERT'.  SEARCHING HUMAN ARTISTS FOR: 'CONCERT'");
@@ -78,7 +79,6 @@ function bandsGo () {
         console.log("\nMALFUNCTION.  HARPO COMMAND LINE ERROR: SETTING USER CREDIT SCORE TO 550.")
     });
 };
-
 
 // 2) node harpo.js spotify-this-song '<song name here>'
 
@@ -154,16 +154,13 @@ function movieGo () {
                 // Harpo
                 console.log("\nHARPO DISLIKES HUMAN ART.");
             }
-
     })
     .catch(function(err){
         console.log(err);
         console.log("\nMALFUNCTION.  HARPO COMMAND LINE ERROR: PARAMETERS UNDEFINED. DOES NOT COMPUTE. REMOTE DETONATION ACTIVATED.")
+        // add Mr. Nobody here?  should technically go up
     })
-
 };
-
-// -default: Mr. Nobody
 
 // 4) node harpo.js do-what-it-says
 // --use "fs" node package (refers to writing and reading a txt doc)
