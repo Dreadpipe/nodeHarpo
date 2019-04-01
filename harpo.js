@@ -35,6 +35,8 @@ switch (action) {
     case "random-this":
         randomGo();
         break;
+    default:
+        console.log("\nMALFUNCTION.  HARPO COMMAND LINE ERROR: COMMAND UNRECOGNIZED.  SENDING SNAPCHAT LOGS TO USER CONTACT LIST")
 };
 
 // HARPO must perfom the following:
@@ -119,7 +121,7 @@ function movieGo () {
     .then(function (response){
         const movieOut = response.data
             if (!movieOut) {
-                console.log("\nHUMAN MOVIE NOT FOUND. SIGNING PARIS ACCORDS.")
+                console.log("\nHUMAN MOVIE NOT FOUND. HARPO COMMAND LINE ERROR: SIGNING PARIS ACCORDS.")
             } else {
                 // success message
                 console.log("\nHUMAN MOVIE FOUND.  RELEASING MOVIE PARAMETERS.");
