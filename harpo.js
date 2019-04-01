@@ -55,11 +55,12 @@ function bandsGo () {
         if (response.data.length === 0) {
             console.log("\nHUMAN ARTIST IS NOT CURRENTLY AVAILABLE FOR SURVEY.  PERHAPS THEY HAVE EXPIRED.");
         } else {
-        console.log("\nHUMAN CAVE DWELLING LOCATED. MUST... NOT... DESTROY...");
+        console.log("\nHUMAN CAVE DWELLING LOCATED. MUST... NOT... DESTROY...\n");
+        console.log(venueOut.lineup + " can be found at:")
         console.log("\nVENUE: " + venueOut.venue.name);
         console.log("LOCATION: " + venueOut.venue.city);
         console.log("DATE: " + date);
-        console.log("I AM HARPO.  HARPO CRAVES INPUT.")
+        console.log("\nI AM HARPO.  HARPO CRAVES INPUT.")
         }
     })
     .catch(function(err) {
