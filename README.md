@@ -13,10 +13,15 @@ Copyright Dreadpipe 2019
 
 ## Requirements:
 -<a href="https://www.npmjs.com/package/node-spotify-api">Spotify API</a>
+<br>
 -<a href="https://www.npmjs.com/package/axios">Axios</a>
+<br>
 -<a href="https://www.npmjs.com/package/dotenv">DotEnv</a>
+<br>
 -<a href="https://www.npmjs.com/package/moment">MomentJS</a>
+<br>
 -<a href="http://www.omdbapi.com/">OMDB API</a>
+<br>
 -<a href="http://www.artists.bandsintown.com/bandsintown-api">Bandsintown API</a>
 
 
@@ -29,23 +34,21 @@ node harpo.js
 
 Following "harpo.js", please enter one of the following commands, followed by the relevant subject of your choosing.  Your subject must be submitted within quotes. i.e., "Eagles of Death Metal", "Live and Let Die"
 
-### spotify-this-song:
-node harpo.js spotify-this-song "your song here"
-
+### Command line: node harpo.js spotify-this-song "your song here"
+Example: <em>node harpo.js spotify-this-song "Thriller"</em>
 This will return information on the song, such as the Artist and the album.
 
-### concert-this:
-node harpo.js concert-this "devin townsend"
-
+### Command Line: node harpo.js concert-this "your artist here"
+Example: <em>node harpo.js concert-this "Devin Townsend"</em>
 This will return information on concert dates, including venue and location, if any exist.
 
-### movie-this
-node harpo.js movie-this "The Matrix"
-
+### Command Line: node harpo.js movie-this "your movie here"
+Example: <em>node harpo.js movie-this "The Matrix"</em>
 This will return information on the movie, including release dates, cast, and plot.
 
-### do-what-it-says
-node harpo.js do-what-it-says "...?"
+### Command Line: node harpo.js do-what-it-says "..."
+Example: <em>node harpo.js do-what-it-says "...?"</em>
+-Available in later versions!
 
 Use at your own risk.  HARPO does not like being told what to do.
 
