@@ -76,7 +76,7 @@ function bandsGo () {
     })
     .catch(function(err) {
         console.log(err);
-        console.log("\nMALFUNCTION.  HARPO COMMAND LINE ERROR: SETTING USER CREDIT SCORE TO 550.")
+        console.log("\nMALFUNCTION.  HARPO COMMAND LINE ERROR: SETTING USER CREDIT SCORE TO 550.");
     });
 };
 
@@ -84,7 +84,7 @@ function bandsGo () {
 
 function spotifyGo () {
     // greets the user
-    console.log("\nTHANK YOU FOR CHOOSING HAPRO.\n \nINPUT DETECTED: 'SONG'. SEARCHING HUMAN MUSIC FOR: 'SONG'")
+    console.log("\nTHANK YOU FOR CHOOSING HAPRO.\n \nINPUT DETECTED: 'SONG'. SEARCHING HUMAN MUSIC FOR: 'SONG'");
     // begins search
     spotify.search({
         type: "track",
@@ -106,7 +106,7 @@ function spotifyGo () {
             // preview link
             console.log("Preview: " + songCall[0].external_urls.spotify);
             // HARPO message
-            console.log("\nHARPO CRAVES INPUT. FEED HARPO.")
+            console.log("\nHARPO CRAVES INPUT. FEED HARPO.");
         } else {
             // else if the song isn't found, display error message
             console.log("\nHARPO COMMAND LINE ERROR: HUMAN SONG NOT FOUND. GROUNDING ALL BOEING 737 AIRCRAFT.");
@@ -114,8 +114,9 @@ function spotifyGo () {
         }
     })
     .catch(function(err) {
-        console.log(err);
-        console.log("\nMALFUNCTION. HARPO COMMAND LINE ERROR: INITIALIZING ICBM LAUNCH.  TARGET: TOPEKA, KANSAS")
+        console.log(err.name);
+        console.log(err.statusCode);
+        console.log("\nMALFUNCTION. HARPO COMMAND LINE ERROR: HUMAN IS STUPID. INITIALIZING ICBM LAUNCH.  TARGET: TOPEKA, KANSAS");
     })
 };
 
