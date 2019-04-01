@@ -1,6 +1,6 @@
 # nodeHarpo
 <strong>H.A.R.P.O.</strong>
-<em>Human and Robot Package Operator</em>
+<em>Humanlike Automation Robotic Package Operator</em>
 
 4/1/19 - v.1.0 - Concerts, Songs, and Movies
 

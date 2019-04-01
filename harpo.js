@@ -38,63 +38,78 @@ switch (action) {
     default:
         console.log("\nMALFUNCTION.  HARPO COMMAND LINE ERROR: COMMAND UNRECOGNIZED.  SENDING SNAPCHAT LOGS TO USER CONTACT LIST")
 };
-
-// HARPO must perfom the following:
-
+// Begin 4 Primary Functions (find bands, find songs, find movies, read text)
 // 1) node harpo.js concert-this <artist/band name here>
-
 function bandsGo () {
-    console.log("\nTHANK YOU FOR CHOOSING HARPO.  HARPO HAS DETECTED INPUT.  SEARCHING HUMAN PERFORMANCE VENUES.");
+    // confirm command received
+    console.log("\nTHANK YOU FOR CHOOSING HARPO.\n  \nINPUT DETECTED: 'CONCERT'.  SEARCHING HUMAN ARTISTS FOR: 'CONCERT'");
+    // ring-a-ling-a ding ding bandsintown API via axios
     axios.get("https://rest.bandsintown.com/artists/" + subject + "/events?app_id=" + bandsAPI)
     .then(function (response){
-        // thanks to tutor for helping me through Moment.js!
+        // quick storage for response
         const venueOut = response.data[0];
+        // thanks to my tutor Eddy for helping me through Moment.js!
         const concertDate = venueOut.datetime;
-        // pulls date data from everything before JSON time result
+        // pulls date data from everything before JSON time result at char "T"
         const dataDate = concertDate.substring(0, concertDate.indexOf("T"));
+        // reformats date to desired DD/MM/YYYY
         const date = moment(dataDate, "YYYY-MM-DD").format("L");
+        // if no date exists, or rather, if length of result equals 0...
         if (response.data.length === 0) {
+            // return "artist not available" error
             console.log("\nHUMAN ARTIST IS NOT CURRENTLY AVAILABLE FOR SURVEY.  PERHAPS THEY HAVE EXPIRED.");
         } else {
-        console.log("\nHUMAN CAVE DWELLING LOCATED. MUST... NOT... DESTROY...\n");
-        console.log(venueOut.lineup + " can be found at:")
+            // confirms HARPO has a match
+        console.log("\nHUMAN PERFORMANCE RITUAL LOCATED. MUST... NOT... DESTROY...\n");
+        // Artist
+        console.log(venueOut.lineup + " will be perfoming here:");
+        // Venue
         console.log("\nVENUE: " + venueOut.venue.name);
+        // Location
         console.log("LOCATION: " + venueOut.venue.city);
+        // Date
         console.log("DATE: " + date);
-        console.log("\nI AM HARPO.  HARPO CRAVES INPUT.")
+        // HARPO message asking for input
+        console.log("\nI AM HARPO.  FEED ME INPUT.")
         }
     })
     .catch(function(err) {
         console.log(err);
         console.log("\nMALFUNCTION.  HARPO COMMAND LINE ERROR: SETTING USER CREDIT SCORE TO 550.")
-    })
-}
+    });
+};
 
-// --searches bands in town API
-// --returns:
-// -name of Venue
-// -location of Venue
-// -date of event (MM/DD/YYYY)
 
 // 2) node harpo.js spotify-this-song '<song name here>'
 
 function spotifyGo () {
-    console.log("\nTHANK YOU FOR CHOOSING HAPRO. HARPO HAS DETECTED INPUT. SEARCHING HUMAN MUSIC.")
+    // greets the user
+    console.log("\nTHANK YOU FOR CHOOSING HAPRO.\n \nINPUT DETECTED: 'SONG'. SEARCHING HUMAN MUSIC FOR: 'SONG'")
+    // begins search
     spotify.search({
         type: "track",
         query: subject,
         limit: 1})
     .then(function (response) {
+        // quick storage for JSON object
         const songCall = response.tracks.items
+        // if HARPO finds a match...
         if (songCall.length > 0) {
-            console.log("\nHUMAN SONG DETECTED.  ANAYLZING...");
+            // confirm
+            console.log("\nHUMAN SONG FOUND.  ANAYLZING...");
+            // artist
             console.log("\nArtist: " + songCall[0].album.artists[0].name);
+            // title of song
             console.log("Title: " + songCall[0].name);
+            // album in which song is found
             console.log("Album: " + songCall[0].album.name);
+            // preview link
             console.log("Preview: " + songCall[0].external_urls.spotify);
-            console.log("\nHARPO CRAVES INPUT.")
+            // HARPO message
+            console.log("\nHARPO CRAVES INPUT. FEED HARPO.")
         } else {
-            console.log("\nHUMAN SONG NOT FOUND. HARPO COMMAND LINE ERROR: GROUNDING ALL BOEING 737 AIRCRAFT.");
+            // else if the song isn't found, display error message
+            console.log("\nHARPO COMMAND LINE ERROR: HUMAN SONG NOT FOUND. GROUNDING ALL BOEING 737 AIRCRAFT.");
             // add auto-search here for Ace of Base: the Sign
         }
     })
@@ -104,24 +119,21 @@ function spotifyGo () {
     })
 };
 
-
-// --searches Spotify API
-// --returns:
-// -Artist
-// -song name
-// -preview link
-// -album
-// -default: returns Ace of Base: The Sign
-
 // 3) node harpo.js movie-this '<move name here>'
 
 function movieGo () {
-    console.log("\nTHANK YOU FOR CHOOSING HARPO.  HARPO HAS DETECTED INPUT.  SEARCHING HUMAN MOTION PICTURES.");
+    // confirms input received
+    console.log("\nTHANK YOU FOR CHOOSING HARPO.\n  \nINPUT DETECTED: 'MOVIE'.  SEARCHING HUMAN BILE FOR: 'MOVIE'");
+    // ringaling OMDB API
     axios.get("http://www.omdbapi.com/?t=" + subject + "&y=&plot=short&apikey=" + omdb)
     .then(function (response){
+        // quick storage variable
         const movieOut = response.data
+        // potentially unnecessary block for if movie can't be found; currently defaulting to error message below
             if (!movieOut) {
-                console.log("\nHUMAN MOVIE NOT FOUND. HARPO COMMAND LINE ERROR: SIGNING PARIS ACCORDS.")
+                // error message that currently does not display based on my if statement
+                // if error is received, currently jumps to bottom error and displays message- works but isn't accurate to what I want
+                console.log("\nHARPO COMMAND LINE ERROR: HUMAN MOVIE NOT FOUND.  SIGNING PARIS ACCORDS.")
             } else {
                 // success message
                 console.log("\nHUMAN MOVIE FOUND.  RELEASING MOVIE PARAMETERS.");
@@ -146,21 +158,11 @@ function movieGo () {
     })
     .catch(function(err){
         console.log(err);
-        console.log("\nMALFUNCTION.  HARPO COMMAND LINE ERROR: DETONATING EXPLOSIVES CACHE IN STREISAND MANOR.")
+        console.log("\nMALFUNCTION.  HARPO COMMAND LINE ERROR: PARAMETERS UNDEFINED. DOES NOT COMPUTE. REMOTE DETONATION ACTIVATED.")
     })
 
-}
+};
 
-// --searchs OMDB API (use axios here, key = "trilogy")
-// --returns:
-// -title
-// -year
-// -rating
-// -rotten tomatoes rating
-// -country where produced
-// -language of movie
-// -plot of movie
-// -actors in movie
 // -default: Mr. Nobody
 
 // 4) node harpo.js do-what-it-says
