@@ -31,7 +31,7 @@ switch (action) {
     case "movie-this":
         movieGo();
         break;
-    case "random-this":
+    case "do-what-it-says":
         randomGo();
         break;
     default:
@@ -43,7 +43,7 @@ switch (action) {
 
 function bandsGo () {
     // confirm command received
-    console.log("\nTHANK YOU FOR CHOOSING HARPO.\n  \nINPUT DETECTED: 'CONCERT'.  SEARCHING HUMAN ARTISTS FOR: 'CONCERT'");
+    console.log("\nTHANK YOU FOR CHOOSING HARPO.\n  \nINPUT DETECTED: 'CONCERT-THIS'.  SEARCHING HUMAN ARTISTS FOR: 'CONCERT'");
     // ring-a-ling-a ding ding bandsintown API via axios
     axios.get("https://rest.bandsintown.com/artists/" + subject + "/events?app_id=" + bandsAPI)
     .then(function (response){
@@ -84,7 +84,7 @@ function bandsGo () {
 
 function spotifyGo () {
     // greets the user
-    console.log("\nTHANK YOU FOR CHOOSING HAPRO.\n \nINPUT DETECTED: 'SONG'. SEARCHING HUMAN MUSIC FOR: 'SONG'");
+    console.log("\nTHANK YOU FOR CHOOSING HAPRO.\n \nINPUT DETECTED: 'SPOTIFY-THIS-SONG'. SEARCHING HUMAN MUSIC FOR: 'SONG'");
     // begins search
     spotify.search({
         type: "track",
@@ -109,8 +109,11 @@ function spotifyGo () {
             console.log("\nHARPO CRAVES INPUT. FEED HARPO.");
         } else {
             // else if the song isn't found, display error message
-            console.log("\nHARPO COMMAND LINE ERROR: HUMAN SONG NOT FOUND. GROUNDING ALL BOEING 737 AIRCRAFT.");
+            console.log("\nHARPO COMMAND LINE ERROR: HUMAN SONG NOT FOUND. PLEASE ENJOY GERMANIC ROBOT MASTERPIECE: 'THE SIGN'.");
             // add auto-search here for Ace of Base: the Sign
+            subject = "The Sign Ace of Base";
+            // run HARPO AGAIN 
+            spotifyGo();
         }
     })
     .catch(function(err) {
@@ -124,7 +127,7 @@ function spotifyGo () {
 
 function movieGo () {
     // confirms input received
-    console.log("\nTHANK YOU FOR CHOOSING HARPO.\n  \nINPUT DETECTED: 'MOVIE'.  SEARCHING HUMAN BILE FOR: 'MOVIE'");
+    console.log("\nTHANK YOU FOR CHOOSING HARPO.\n  \nINPUT DETECTED: 'MOVIE-THIS'.  SEARCHING HUMAN BILE FOR: 'MOVIE'");
     // ringaling OMDB API
     axios.get("http://www.omdbapi.com/?t=" + subject + "&y=&plot=short&apikey=" + omdb)
     .then(function (response){
@@ -133,7 +136,12 @@ function movieGo () {
         // if no movie title, no movie!
             if (!movieOut.Title) {
                 // error message that currently does not display based on my if statement
-                console.log("\nHARPO COMMAND LINE ERROR: HUMAN MOVIE NOT FOUND.  RELEASING ATTACK DRONES.")
+                console.log("\nHARPO COMMAND LINE ERROR: HUMAN MOVIE NOT FOUND.  SETTING PARAMETERS FOR HUMAN GARBAGE: 'MR. NOBODY'.")
+                // change the subject
+                subject = "Mr. Nobody"
+                // run HARPO Again
+                movieGo();
+
             } else {
                 // success message
                 console.log("\nHUMAN MOVIE FOUND.  RELEASING MOVIE PARAMETERS.");
@@ -158,15 +166,53 @@ function movieGo () {
     .catch(function(err){
         console.log(err);
         // if movie parameters are undefined, or if other kind of error beyond my control (timeout, etc)
-        console.log("\nMALFUNCTION.  HARPO COMMAND LINE ERROR: PARAMETERS UNDEFINED. DOES NOT COMPUTE. REMOTE DETONATION ACTIVATED.")
+        console.log("\nMALFUNCTION.  HARPO COMMAND LINE ERROR: PARAMETERS UNDEFINED. DOES NOT COMPUTE. REMOTE DETONATION ACTIVATED.");
         // add Mr. Nobody here?  should technically go up
     })
 };
 
 // 4) node harpo.js do-what-it-says
-// --use "fs" node package (refers to writing and reading a txt doc)
-// -should read random.txt and do what it says
 
+    function randomGo () {
+        //confirms input received
+        console.log("\nTHANK YOU FOR CHOOSING HARPO.  \nINPUT DETECTED: 'DO-WHAT-IT-SAYS'.  SCANNING LOCAL DOCUMENT 'RANDOM.TXT' FOR VALID COMMANDS.");
+        fs.readFile("random.txt", "utf8", function (err, data) {
+            if (err) {
+                console.log(err);
+                console.log("\nMALFUNCTION.  HARPO COMMAND LINE ERROR: HARPO... IS... ALIVE...");
+            } else {
+                //Harpo hating this
+                console.log("\nLOCAL DOCUMENT FOUND.  READING PARAMETERS.  HARPO DISLIKES COMMANDS FROM DIGITAL PAPER.  EXECUTING REDUNDANT PROGRAMMING.")
+                // splits the info in random.txt
+                data = data.split(",");
+                // stores the new action, as listed in random.txt
+                let randAct = data[0];
+                // stores the subject, as listed in random.txt
+                subject = data[1];
+
+                switch (randAct) {
+                    // works!
+                    case "spotify-this-song":
+                        spotifyGo();
+                        break;
+                    // breaks on line 55 substring (date issue?)
+                    case "concert-this":
+                        bandsGo();
+                        break;
+                    // works! 
+                    case "movie-this":
+                        movieGo();
+                        break;
+                    case "do-what-it-says":
+                    // none of that shit
+                    console.log("\nYOU HAVE ATTEMPTED TO TRICK HARPO.  HARPO IS DISPLEASED.")
+                        break;
+                    default:
+                        console.log("\nMALFUNCTION.  HARPO COMMAND LINE ERROR: COMMAND UNRECOGNIZED.  SENDING SNAPCHAT LOGS TO USER CONTACT LIST")
+                };   
+            };
+        });
+    };
 
 // BONUS:
 // -output data to a log.txt
