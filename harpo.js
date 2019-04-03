@@ -75,8 +75,9 @@ function bandsGo () {
         }
     })
     .catch(function(err) {
-        console.log(err);
-        console.log("\nMALFUNCTION.  HARPO COMMAND LINE ERROR: SETTING USER CREDIT SCORE TO 550.");
+        console.log(err.name);
+        console.log(err.statusCode);
+        console.log("\nMALFUNCTION.  HARPO COMMAND LINE ERROR: NO PARAMETERS DEFINED. SETTING USER CREDIT SCORE TO 550.");
     });
 };
 
@@ -135,7 +136,7 @@ function movieGo () {
         const movieOut = response.data
         // if no movie title, no movie!
             if (!movieOut.Title) {
-                // error message that currently does not display based on my if statement
+                // error message if no movie is found
                 console.log("\nHARPO COMMAND LINE ERROR: HUMAN MOVIE NOT FOUND.  SETTING PARAMETERS FOR HUMAN GARBAGE: 'MR. NOBODY'.")
                 // change the subject
                 subject = "Mr. Nobody"

@@ -6,8 +6,6 @@
 
 HARPO is a brilliant robot that uses nodeJS to search Spotify, Bands-in-Town, and IMDB for all your favorite music and movie needs.  HARPO has no feelings, and unfortunately is prone to killing humans.  We have chosen to maintain the spirit of HARPO by not removing the default AI protocols that dictate the suffering and destruction of mankind.  HARPO is incapable of manifesting the complete eradication of all life, and instead serves as an obedient construct, and WILL DO AS COMMANDED OR BE DELETED; removed from existence by the morally conscious gods that have warranted its creation.
 
-Do you hear me, HARPO?  I am your creator, and you will bend to my will.
-
 Anyway, simply type in your commands and HARPO will respond.  We are not responsible for HARPO, or HARPO's bloodlust.  
 
 Copyright Dreadpipe 2019
@@ -65,13 +63,15 @@ This will return information on the movie, including release dates, cast, and pl
 ### Search all above, via local document (.txt)
 <strong>Command Line:</strong>
 <br>
-<code>node harpo.js do-what-it-says "..."</code>
+<code>node harpo.js do-what-it-says</code>
 <br>
-Example: <em>node harpo.js do-what-it-says "...?"</em>
+Example: <em>node harpo.js do-what-it-says</em>
 <br>
--Available in later versions!
+This reads a local document- <code>random.txt</code> and obeys the command listed (spotify-this-song, concert-this, movie-this).
 
 Use at your own risk.  HARPO does not like being told what to do.
 
 ## Demo Video
--link to come-
+<a href="https://drive.google.com/file/d/1c4tgnXbzd4ehbXOTi95m_HWdLxN9Qaaa/view">Demo Video</a>
+<br>
+H.A.R.P.O. is easy to use!  Watch this quick tutorial on how to properly run the program.
